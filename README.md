@@ -1,9 +1,8 @@
 # Markdown Previewer
 
-This is a lightweight markdown previewer.
+This is a lightweight markdown previewer created with the intent to better familiarise myself with React Hooks.
 
 TODO:
-
 - Templates
 - Better/responsive layout
 
