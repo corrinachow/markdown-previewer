@@ -2,8 +2,12 @@ import React, { useState } from "react";
 
 const renderer = new window.marked.Renderer();
 
+window.marked.setOptions({
+  breaks: true
+});
+
 renderer.link = (href, title, text) =>
-  `<a target="_blank" href="${href}">${text}` + "</a>";
+  `<a target="_blank" href="${href}">${text}</a>`;
 
 const MarkdownPreviewer = () => {
   const [text, setText] = useState(defaultText);
@@ -13,17 +17,19 @@ const MarkdownPreviewer = () => {
   };
 
   return (
-    <>
+    <div className="container">
+      <h1>Enter markdown below:</h1>
       <textarea id="editor" onChange={handleInputChange}>
         {text}
       </textarea>
+      <h1>Preview:</h1>
       <div
         id="preview"
         dangerouslySetInnerHTML={{
           __html: window.marked(text, { renderer: renderer })
         }}
       />
-    </>
+    </div>
   );
 };
 
